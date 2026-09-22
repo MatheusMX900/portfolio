@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Andrade | Desenvolvedor Full-Stack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                        },
+                        darkBg: '#0b0f17',
+                        cardBg: '#131b2e',
+                        cardBorder: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-darkBg text-slate-100 antialiased selection:bg-brand-500 selection:text-white relative overflow-x-hidden">
+
+    <!-- Background Lighting Radial Blurs -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-1/3 right-10 w-[30rem] h-[30rem] bg-accent-500/10 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-accent-500 flex items-center justify-center text-white font-bold text-xl shadow-lg transition-transform group-hover:scale-105">
+                        MA
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white group-hover:text-brand-400 transition-colors">
+                        Matheus<span class="text-brand-400">.Dev</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#sobre" class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Sobre Mim</a>
+                    <a href="#projetos" class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Projetos</a>
+                    <a href="#habilidades" class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Habilidades</a>
+                    <a href="#contato" class="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors">Contato</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="https://wa.me/5512991754371?text=Olá%20Matheus!%20Vim%20pelo%20seu%20site%20portfólio." target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-brand-500 to-accent-500 hover:from-brand-600 hover:to-accent-600 text-white shadow-lg shadow-brand-500/20 hover:shadow-brand-500/40 transition-all duration-300 flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        Falar no WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2 rounded-lg focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-slate-800 px-4 pt-4 pb-6 space-y-3">
+            <a href="#sobre" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Sobre Mim</a>
+            <a href="#projetos" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Projetos</a>
+            <a href="#habilidades" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Habilidades</a>
+            <a href="#contato" class="mobile-nav-link block px-3 py-2 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Contato</a>
+            <div class="pt-2">
+                <a href="https://wa.me/5512991754371?text=Olá%20Matheus!%20Vim%20pelo%20seu%20site%20portfólio." target="_blank" rel="noopener noreferrer" class="w-full text-center px-5 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-brand-500 to-accent-500 text-white block shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="sobre" class="pt-32 pb-20 md:pt-40 md:pb-28 relative bg-grid-pattern overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card border-brand-500/30 text-brand-400 text-xs sm:text-sm font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Disponível para Novos Projetos
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight sm:leading-tight mb-6">
+                        Olá, eu sou o <br class="hidden sm:block"/>
+                        <span class="text-gradient">Matheus Andrade</span>
+                    </h1>
+
+                    <h2 class="text-xl sm:text-2xl font-semibold text-slate-300 mb-6 flex items-center justify-center lg:justify-start gap-2">
+                        <i class="fa-solid fa-code text-brand-400"></i>
+                        Desenvolvedor Full-Stack
+                    </h2>
+
+                    <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8 font-light">
+                        Sou um desenvolvedor Full-Stack em constante aprendizado e evolução tecnológica. No decorrer dos meus estudos fui construindo a minha carreira, criando soluções sob medida e alcançando <strong class="text-slate-200 font-semibold">clientes reais</strong> através de projetos de alto impacto.
+                    </p>
+
+                    <!-- CTA Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#projetos" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold bg-gradient-to-r from-brand-500 to-accent-500 hover:from-brand-600 hover:to-accent-600 text-white shadow-xl shadow-brand-500/20 hover:shadow-brand-500/40 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <span>Ver Trabalhos</span>
+                            <i class="fa-solid fa-arrow-down text-sm"></i>
+                        </a>
+                        <a href="#contato" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold glass-card hover:bg-slate-800/80 text-slate-200 border border-slate-700/80 transition-all duration-300 text-center flex items-center justify-center gap-2">
+                            <span>Entre em Contato</span>
+                            <i class="fa-solid fa-paper-plane text-sm text-brand-400"></i>
+                        </a>
+                    </div>
+
+                    <!-- Quick Metrics -->
+                    <div class="grid grid-cols-3 gap-4 mt-12 pt-8 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-white">100%</span>
+                            <span class="text-xs sm:text-sm text-slate-400">Foco em Qualidade</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-white">Full-Stack</span>
+                            <span class="text-xs sm:text-sm text-slate-400">Web & Mobile</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl sm:text-3xl font-extrabold text-white">Clientes</span>
+                            <span class="text-xs sm:text-sm text-slate-400">Projetos Reais</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Profile Avatar -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group">
+                        <!-- Neon Circle Backdrop -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-400 to-accent-500 rounded-full blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+                        
+                        <!-- Main Avatar Container -->
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden p-2 glass-card glow-avatar border-2 border-brand-400/40">
+                            <img 
+                                src="./assets/perfil_Matheus.JPEG" 
+                                alt="Matheus Andrade Profile" 
+                                class="w-full h-full object-cover object-top rounded-full transition-transform duration-700 group-hover:scale-105"
+                                onerror="this.src='https://placehold.co/400x400/0f172a/38bdf8?text=Matheus+Andrade'"
+                            />
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-2 -right-2 glass-card px-4 py-2.5 rounded-2xl border border-slate-700 shadow-2xl flex items-center gap-3">
+                            <div class="w-9 h-9 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center">
+                                <i class="fa-solid fa-award text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-medium">Especialidade</p>
+                                <p class="text-xs sm:text-sm font-bold text-white">Alta Conversão & Web</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projetos" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold mb-2">Portfólio em Destaque</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Sites & Sistemas Profissionais</h3>
+                <p class="text-slate-400 mt-3 text-base">Uma seleção de trabalhos desenvolvidos com foco em performance, experiência do usuário e resultados reais.</p>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mt-8" id="filter-buttons">
+                    <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all bg-brand-500 text-white shadow-lg shadow-brand-500/25">Todos os Trabalhos</button>
+                    <button data-filter="landing" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all glass-card text-slate-300 hover:text-white hover:bg-slate-800">Landing Pages</button>
+                    <button data-filter="webapp" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all glass-card text-slate-300 hover:text-white hover:bg-slate-800">Sistemas & Web Apps</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+
+    <!-- Project Item 1: Fotos IA Landing Page (Com Mockup) -->
+    <div class="project-card glass-card rounded-2xl overflow-hidden hover-glow transition-all duration-300 flex flex-col group border border-slate-800" data-category="landing">
+        <div class="relative overflow-hidden h-52 bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-70"></div>
+            
+            <!-- IMAGEM DO PROJETO 1: Mockup Responsivo -->
+            <!-- Idealmente, esta imagem deve mostrar o site no desktop e no mobile lado a lado -->
+            <img src="./assets/ellaquebrilha-mockup.png" alt="Preview da Landing Page Ella Que Brilha" class="w-full h-full object-contain object-center bg-white transition-transform duration-500">
+
+            <div class="absolute top-3 right-3 z-20">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 flex items-center gap-1.5 shadow-lg backdrop-blur-md">
+                    <i class="fa-solid fa-fire text-amber-400"></i> Alta Conversão
+                </span>
+            </div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Landing Page</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Fotos Profissionais com IA</h4>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    Landing page desenvolvida estrategicamente para alta conversão, focado em vendas de serviços de geração de fotos com inteligência artificial.
+                </p>
+            </div>
+            <div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">HTML5</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">CSS3</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
+                </div>
+                <a href="https://ellaquebrilha.online/fotos-profissionais-com-ia/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl text-sm font-semibold glass-card border border-brand-500/30 hover:bg-brand-500 hover:text-white text-brand-400 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>Acessar Projeto</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Item 2: Closet Site (GitHub link) -->
+    <div class="project-card glass-card rounded-2xl overflow-hidden hover-glow transition-all duration-300 flex flex-col group border border-slate-800" data-category="webapp">
+        <div class="relative overflow-hidden h-52 bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-70"></div>
+            
+            <!-- IMAGEM DO PROJETO 6: Representação de Código/GitHub -->
+            <!-- Como é um link do GitHub, coloquei uma imagem provisória que represente código ou o próprio repositório -->
+            <img src="./assets/closet.jpeg" alt="Representação do Repositório do Closet Site no GitHub" class="w-full h-full object-contain object-center bg-white transition-transform duration-500">
+
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Apresentação de Cliente</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Closet Site</h4>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    Site de apresentação exclusivo para cliente final, destacando produtos de moda com interatividade e catálogo dinâmico.
+                </p>
+            </div>
+            <div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">HTML5</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">Tailwind CSS</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
+                </div>
+                <a href="https://closet-site.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl text-sm font-semibold glass-card border border-brand-500/30 hover:bg-brand-500 hover:text-white text-brand-400 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>Ver Site</span>
+                    <i class="fa-solid fa-globe text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Item 3: Daniele Pinheiro -->
+    <div class="project-card glass-card rounded-2xl overflow-hidden hover-glow transition-all duration-300 flex flex-col group border border-slate-800" data-category="landing">
+        <div class="relative overflow-hidden h-52 bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-70"></div>
+            
+            <!-- IMAGEM DO PROJETO 3: Screenshot do Site -->
+            <img src="./assets/daniele_pinheiro_logo.png" alt="Preview do Site Daniele Pinheiro" class="w-full h-full object-contain object-center bg-white transition-transform duration-500">
+
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Site Institucional</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Daniele Pinheiro Website</h4>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    Website profissional e institucional desenvolvido para apresentação de serviços, credibilidade e autoridade de marca.
+                </p>
+            </div>
+            <div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">HTML5</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">Tailwind CSS</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
+                </div>
+                <a href="https://dani.danielepinheiro.com.br/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl text-sm font-semibold glass-card border border-brand-500/30 hover:bg-brand-500 hover:text-white text-brand-400 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>Acessar Projeto</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Item 4: CT Gym -->
+    <div class="project-card glass-card rounded-2xl overflow-hidden hover-glow transition-all duration-300 flex flex-col group border border-slate-800" data-category="webapp">
+        <div class="relative overflow-hidden h-52 bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-70"></div>
+            
+            <!-- IMAGEM DO PROJETO 4: Screenshot do Site -->
+            <img src="./assets/ctgym.jpeg" alt="Preview do Site CT Gym" class="w-full h-full object-contain object-center bg-slate-900 transition-transform duration-500">
+
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Fitness & Saúde</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">CT Gym Platform</h4>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    Plataforma/site interativo para centro de treinamento e academia com catálogo de modalidades e atração de alunos.
+                </p>
+            </div>
+            <div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">HTML5</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">CSS3</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
+                </div>
+                <a href="https://ct-gym.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl text-sm font-semibold glass-card border border-brand-500/30 hover:bg-brand-500 hover:text-white text-brand-400 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>Acessar Projeto</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Item 5: IECCP -->
+    <div class="project-card glass-card rounded-2xl overflow-hidden hover-glow transition-all duration-300 flex flex-col group border border-slate-800" data-category="landing">
+        <div class="relative overflow-hidden h-52 bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-70"></div>
+            
+            <!-- IMAGEM DO PROJETO 5: Screenshot do Site -->
+            <img src="./assets/ieccp-preview.png" alt="Preview do Site IECCP" class="w-full h-full object-contain object-center bg-slate-900 transition-transform duration-500">
+
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Portal Web</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">IECCP Portal</h4>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    Portal web institucional completo com navegação fluida, layout corporativo e otimização para todos os dispositivos.
+                </p>
+            </div>
+            <div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">HTML5/CSS3</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">PHP/JavaScript</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">SQLite</span>
+                </div>
+                <a href="https://ieccp.com.br/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl text-sm font-semibold glass-card border border-brand-500/30 hover:bg-brand-500 hover:text-white text-brand-400 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>Acessar Projeto</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Item 6: Bio Links -->
+    <div class="project-card glass-card rounded-2xl overflow-hidden hover-glow transition-all duration-300 flex flex-col group border border-slate-800" data-category="webapp">
+        <div class="relative overflow-hidden h-52 bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-transparent to-transparent z-10 opacity-70"></div>
+            
+            <!-- IMAGEM DO PROJETO 2: Screenshot do Site -->
+            <img src="./assets/bio-link.png" alt="Preview da página Bio Links" class="w-full h-full object-contain object-center bg-slate-900 transition-transform duration-500">
+        
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+                <div class="flex items-center gap-2 mb-2">
+                    <span class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Web Application</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">Bio Links Page</h4>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    Agregador de links dinâmico e responsivo, projetado para otimizar a presença digital em redes sociais com visual moderno.
+                </p>
+            </div>
+            <div>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">HTML5</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">CSS3</span>
+                    <span class="px-2.5 py-1 rounded-md text-xs bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
+                </div>
+                <a href="https://bio-links-page.vercel.app/" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl text-sm font-semibold glass-card border border-brand-500/30 hover:bg-brand-500 hover:text-white text-brand-400 transition-all duration-300 flex items-center justify-center gap-2">
+                    <span>Acessar Projeto</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+            <!-- Full Portfolio Callout Banner -->
+            <div class="mt-16 glass-card rounded-3xl p-8 md:p-12 border border-brand-500/20 relative overflow-hidden text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="max-w-2xl">
+                    <span class="text-xs font-bold text-brand-400 uppercase tracking-widest mb-2 block">E tem muito mais...</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3">
+                        Gostou do que viu? Tenho mais projetos no repositório!
+                    </h3>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Aqui está um pouco dos meus trabalhos dentre muitos outros que desenvolvi. Possuo um histórico em constante expansão no GitHub.
+                    </p>
+                </div>
+
+                <a href="https://github.com/MatheusMX900" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-xl text-sm font-semibold bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 hover:border-brand-400 shadow-xl transition-all duration-300 whitespace-nowrap flex items-center gap-3 group">
+                    <i class="fa-brands fa-github text-xl group-hover:scale-110 transition-transform"></i>
+                    <span>Ver GitHub Completo</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="habilidades" class="py-20 bg-slate-950/50 relative border-y border-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold mb-2">Stack Tecnológica</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Minhas Habilidades & Ferramentas</h3>
+                <p class="text-slate-400 mt-3 text-base">Tecnologias modernas que utilizo para construir aplicações robustas do backend ao frontend.</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 sm:gap-6">
+                
+                <!-- Skill 1 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-brands fa-html5 text-4xl text-orange-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-semibold text-slate-200">HTML5</span>
+                </div>
+
+                <!-- Skill 2 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-brands fa-css3-alt text-4xl text-blue-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-semibold text-slate-200">CSS3</span>
+                </div>
+
+                <!-- Skill 3 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-brands fa-js text-4xl text-yellow-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-semibold text-slate-200">JavaScript</span>
+                </div>
+
+                <!-- Skill 4 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-brands fa-react text-4xl text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-semibold text-slate-200">React</span>
+                </div>
+
+                <!-- Skill 5 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-brands fa-node-js text-4xl text-green-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-semibold text-slate-200">Node.js</span>
+                </div>
+
+                <!-- Skill 6 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-solid fa-wind text-4xl text-sky-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-semibold text-slate-200">Tailwind CSS</span>
+                </div>
+
+                <!-- Skill 7 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-brands fa-git-alt text-4xl text-red-500 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-semibold text-slate-200">Git / GitHub</span>
+                </div>
+
+                <!-- Skill 8 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-solid fa-server text-4xl text-purple-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="text-sm font-semibold text-slate-200">APIs RESTful</span>
+                </div>
+
+                <!-- Skill 10 -->
+                <div class="glass-card p-5 rounded-2xl flex flex-col items-center justify-center gap-3 hover-glow transition-all duration-300 group border border-slate-800">
+                    <i class="fa-solid fa-database text-4xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                    <span class="min-w-0 max-w-full break-words text-center text-xs sm:text-sm leading-tight font-semibold text-slate-200">PostgreSQL/Banco de Dados</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left Info -->
+                <div class="lg:col-span-5">
+                    <h2 class="text-xs uppercase tracking-widest text-brand-400 font-bold mb-2">Vamos Conversar</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white mb-6">Pronto para criar o seu projeto?</h3>
+                    <p class="text-slate-400 leading-relaxed mb-8">
+                        Seja para desenvolver uma Landing Page de alta conversão, um site profissional ou uma plataforma Full-Stack sob medida, estou à disposição para transformarmos suas ideias em resultados.
+                    </p>
+
+                    <!-- Contact Details -->
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-brand-400 border border-slate-800">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">WhatsApp / Telefone</span>
+                                <a href="https://wa.me/5512991754371?text=Olá%20Matheus!%20Vim%20pelo%20seu%20site%20!" target="_blank" class="text-slate-200 font-semibold hover:text-brand-400 transition-colors">Iniciar conversa no WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-brand-400 border border-slate-800">
+                                <i class="fa-brands fa-github text-xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">GitHub</span>
+                                <a href="https://github.com/MatheusMX900" target="_blank" class="text-slate-200 font-semibold hover:text-brand-400 transition-colors">github.com/MatheusMX900</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-brand-400 border border-slate-800">
+                                <i class="fa-solid fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-slate-400 block">E-mail Profissional</span>
+                                <span class="text-slate-200 font-semibold">mt.andrade.cabral@gmail.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Component -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" class="glass-card p-8 rounded-3xl border border-slate-800 space-y-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Envie uma Mensagem Direta</h4>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Seu Nome</label>
+                                <input id="contact-name" name="name" type="text" required placeholder="Ex: João Silva" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Seu E-mail ou WhatsApp</label>
+                                <input id="contact-reply-to" name="replyTo" type="text" required placeholder="Ex: joao@email.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Assunto / Tipo de Projeto</label>
+                            <input id="contact-subject" name="subject" type="text" placeholder="Ex: Landing Page, Site Institucional, Sistema..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-2 uppercase">Detalhes da Mensagem</label>
+                            <textarea id="contact-message" name="message" rows="4" required placeholder="Conte-me um pouco sobre sua ideia ou necessidade..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-colors text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl text-sm font-semibold bg-gradient-to-r from-brand-500 to-accent-500 hover:from-brand-600 hover:to-accent-600 text-white shadow-lg shadow-brand-500/25 transition-all duration-300 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Enviar pelo WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-12 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+                <p class="text-sm font-medium text-slate-400">
+                    &copy; <span id="year"></span> <strong class="text-white">Matheus Andrade</strong>. Todos os direitos reservados.
+                </p>
+                <p class="text-xs text-slate-500 mt-1">Desenvolvedor Full-Stack | Projetos Web de Alta Performance</p>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/MatheusMX900" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-400 hover:text-brand-400 hover:border-brand-500/40 transition-all">
+                    <i class="fa-brands fa-github text-lg"></i>
+                </a>
+                <a href="https://wa.me/5512991754371?text=Olá!" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 transition-all">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

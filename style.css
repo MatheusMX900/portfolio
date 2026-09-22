@@ -1,0 +1,67 @@
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0b0f17;
+    color: #f1f5f9;
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+    background: rgba(19, 27, 46, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.glass-nav {
+    background: rgba(11, 15, 23, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Glow effects */
+.glow-accent {
+    box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.3);
+}
+
+.glow-avatar {
+    box-shadow: 0 0 35px -5px rgba(99, 102, 241, 0.4), 0 0 15px -3px rgba(56, 189, 248, 0.4);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px -5px rgba(56, 189, 248, 0.25);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+/* Grid Background Pattern */
+.bg-grid-pattern {
+    background-size: 40px 40px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Text Gradient */
+.text-gradient {
+    background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0b0f17;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}

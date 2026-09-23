@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matheus Andrade | Desenvolvedor Full-Stack</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+    <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matheus Andrade | Desenvolvedor Full-Stack</title>
+
+  <!-- Preconnect para acelerar conexões CDN antes de baixar os arquivos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Preload da imagem LCP (Sua foto de perfil otimizada em WebP) -->
+  <link rel="preload" as="image" href="./assets/perfil_matheus.webp" type="image/webp">
+
+  <!-- Fontes do Google com display=swap explicito -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+
+  <!-- Carregamento Assíncrono do FontAwesome para NÃO bloquear a renderização -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Carregamento do Tailwind CDN não-bloqueante (ou preferencialmente Tailwind compilado em produção) -->
+  <script src="https://cdn.tailwindcss.com" ></script>
+  <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -34,14 +51,23 @@
             }
         }
     </script>
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus Andrade | Desenvolvedor Full-Stack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
+     FontAwesome Icons
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="style.css">
-</head>
+</head> -->
 <body class="bg-darkBg text-slate-100 antialiased selection:bg-brand-500 selection:text-white relative overflow-x-hidden">
 
     <!-- Background Lighting Radial Blurs -->
@@ -160,12 +186,8 @@
                         
                         <!-- Main Avatar Container -->
                         <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden p-2 glass-card glow-avatar border-2 border-brand-400/40">
-                            <img 
-                                src="./assets/perfil_Matheus.JPEG" 
-                                alt="Matheus Andrade Profile" 
-                                class="w-full h-full object-cover object-top rounded-full transition-transform duration-700 group-hover:scale-105"
-                                onerror="this.src='https://placehold.co/400x400/0f172a/38bdf8?text=Matheus+Andrade'"
-                            />
+                            <img src="./assets/perfil_matheus.webp" alt="Matheus Andrade - Desenvolvedor Full-Stack" width="380" height="380" fetchpriority="high" loading="eager" 
+                            class="w-full h-full object-cover object-top rounded-full transition-transform duration-500 group-hover:scale-105">
                         </div>
 
                         <!-- Floating Badge -->

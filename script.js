@@ -1,40 +1,44 @@
-// Set dynamic current year in footer
-document.getElementById('year').textContent = new Date().getFullYear()
-// Mobile drawer menu functionality
+// Atualiza o ano corrente dinamicamente no footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Controle do Menu Drawer Mobile
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon')
+const menuIcon = document.getElementById('menu-icon');
+
 mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    if (mobileMenu.classList.contains('hidden')) {
-        menuIcon.classList.remove('fa-xmark');
-        menuIcon.classList.add('fa-bars');
-    } else {
+    mobileMenu.classList.toggle('active');
+    
+    if (mobileMenu.classList.contains('active')) {
         menuIcon.classList.remove('fa-bars');
         menuIcon.classList.add('fa-xmark');
+    } else {
+        menuIcon.classList.remove('fa-xmark');
+        menuIcon.classList.add('fa-bars');
     }
-})
-// Close mobile drawer when clicking a link
+});
+
+// Fecha o drawer mobile ao clicar em qualquer link de navegação
 document.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('active');
         menuIcon.classList.remove('fa-xmark');
         menuIcon.classList.add('fa-bars');
     });
-})
-// Portfolio Category Filter Logic
+});
+
+// Lógica dos Filtros de Categoria do Portfólio
 const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card')
+const projectCards = document.querySelectorAll('.project-card');
+
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-        // Update button active state
-        filterBtns.forEach(b => {
-            b.classList.remove('active', 'bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/25');
-            b.classList.add('glass-card', 'text-slate-300');
-        })
-        btn.classList.add('active', 'bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/25');
-        btn.classList.remove('glass-card', 'text-slate-300')
-        const filterValue = btn.getAttribute('data-filter')
+        // Altera o estado ativo dos botões
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
         projectCards.forEach(card => {
             if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
                 card.style.display = 'flex';
@@ -43,8 +47,9 @@ filterBtns.forEach(btn => {
             }
         });
     });
-})
-// Contact Form Submission Handler
+});
+
+// Submissão do Formulário de Contato Direto para o WhatsApp
 const contactForm = document.getElementById('contact-form');
 contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
